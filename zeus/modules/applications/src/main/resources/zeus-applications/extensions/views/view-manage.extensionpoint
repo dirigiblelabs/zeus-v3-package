@@ -1,4 +1,0 @@
-{
-	'description': 'Extension Point for the zeus-applications View Providers',
-	'name': 'launchpad-zeus-applications-view'
-}

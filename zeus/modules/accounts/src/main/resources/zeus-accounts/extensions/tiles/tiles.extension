@@ -1,5 +1,0 @@
-{
-	'description': ' tiles',
-	'extensionPoint': 'launchpad-zeus-tiles',
-	'module': 'zeus-accounts/extensions/tiles/tiles.js'
-}

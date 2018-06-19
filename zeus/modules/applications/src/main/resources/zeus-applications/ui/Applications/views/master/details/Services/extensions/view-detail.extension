@@ -1,0 +1,5 @@
+{
+	'description': 'Services view',
+	'extensionPoint': 'launchpad-Applications-Applications-view',
+	'module': 'zeus-applications/ui/Applications/views/master/details/Services/extensions/view.js'
+}

@@ -4,5 +4,36 @@
 		"type": "git",
 		"branch": "master",
 		"url": "https://github.com/dirigiblelabs/zeus-v3.git"
-	}
+	},
+	"dependencies": [{
+		"guid": "zeus-v3-templates",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-templates.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-v3-deployer",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-deployer.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-v3-applications",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-applications.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-v3-accounts",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-accounts.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-v3-data",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-data.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-v3-data-playbook",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-data-playbook.git",
+		"type": "git",
+		"branch": "master"
+	}]
 }

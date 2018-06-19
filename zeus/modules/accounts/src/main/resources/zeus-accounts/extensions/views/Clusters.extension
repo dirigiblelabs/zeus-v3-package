@@ -1,5 +1,0 @@
-{
-	'description': 'Clusters view',
-	'extensionPoint': 'launchpad-zeus-accounts-view',
-	'module': 'zeus-accounts/views/Clusters/view.js'
-}

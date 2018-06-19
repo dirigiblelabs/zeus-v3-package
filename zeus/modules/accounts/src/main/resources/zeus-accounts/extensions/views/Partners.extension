@@ -1,5 +1,0 @@
-{
-	'description': 'Partners view',
-	'extensionPoint': 'launchpad-zeus-accounts-view',
-	'module': 'zeus-accounts/views/Partners/view.js'
-}

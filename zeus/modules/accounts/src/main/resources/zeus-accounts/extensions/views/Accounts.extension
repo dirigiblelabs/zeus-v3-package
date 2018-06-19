@@ -1,5 +1,0 @@
-{
-	'description': 'Accounts view',
-	'extensionPoint': 'launchpad-zeus-accounts-view',
-	'module': 'zeus-accounts/views/Accounts/view.js'
-}

@@ -131,7 +131,7 @@
                     {
                         "name": "ZC_TOKEN",
                         "type": "VARCHAR",
-                        "length": "1024",
+                        "length": "2048",
                         "primaryKey": "false",
                         "identity": "false",
                         "precision": "",

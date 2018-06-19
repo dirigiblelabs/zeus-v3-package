@@ -174,6 +174,12 @@ angular.module('ideUiCore', ['ngResource'])
 		},
 		link: function(scope, el, attrs){
 			scope.perspectives = Perspectives.query();
+			scope.activePerspective = localStorage.getItem('DIRIGIBLE.application.zeus.activePerspective');
+
+			scope.setActivePerspective = function(activePerspective) {
+				localStorage.setItem('DIRIGIBLE.application.zeus.activePerspective', activePerspective);
+				scope.activePerspective = activePerspective;
+			};
 		},
 		templateUrl: '/services/v3/web/zeus/resources/templates/sidebar.html'
 	}
@@ -210,7 +216,7 @@ angular.module('ideUiCore', ['ngResource'])
 		restrict: 'AE',
 		scope: {
 			viewsLayoutModel: '=',
-			viewsExtensionPoint: '@viewsExtensionPoint',
+			viewsExtensionPoint: '@viewsExtensionPoint'
 		},
 		link: function(scope, el, attrs){
 			var views;

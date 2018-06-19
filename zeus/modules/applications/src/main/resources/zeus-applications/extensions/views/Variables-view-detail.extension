@@ -1,5 +1,0 @@
-{
-	'description': 'Variables view',
-	'extensionPoint': 'launchpad-zeus-applications-Applications-view',
-	'module': 'zeus-applications/views/master/details/Variables/view.js'
-}

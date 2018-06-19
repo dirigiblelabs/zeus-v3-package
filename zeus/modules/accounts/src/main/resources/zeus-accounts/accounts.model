@@ -4,11 +4,15 @@
             {
                 "name": "Partners",
                 "dataName": "ZEUS_PARTNERS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "PRIMARY",
                 "menuKey": "partners",
                 "menuLabel": "Partners",
                 "menuIndex": 100,
                 "layoutType": "MANAGE",
+                "perspectiveName": "Accounts",
+                "perspectiveIcon": "cubes",
+                "perspectiveOrder": 300,
                 "properties": [
                     {
                         "name": "Id",
@@ -155,11 +159,15 @@
             {
                 "name": "Accounts",
                 "dataName": "ZEUS_ACCOUNTS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "PRIMARY",
                 "menuKey": "accounts",
                 "menuLabel": "Accounts",
                 "menuIndex": 100,
                 "layoutType": "MANAGE",
+                "perspectiveName": "Accounts",
+                "perspectiveIcon": "cubes",
+                "perspectiveOrder": 300,
                 "properties": [
                     {
                         "name": "Id",
@@ -278,11 +286,15 @@
             {
                 "name": "Clusters",
                 "dataName": "ZEUS_CLUSTERS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "PRIMARY",
                 "menuKey": "clusters",
                 "menuLabel": "Clusters",
                 "menuIndex": 100,
                 "layoutType": "MANAGE",
+                "perspectiveName": "Accounts",
+                "perspectiveIcon": "cubes",
+                "perspectiveOrder": 300,
                 "properties": [
                     {
                         "name": "Id",
@@ -372,7 +384,7 @@
                         "name": "Token",
                         "dataName": "ZC_TOKEN",
                         "dataType": "VARCHAR",
-                        "dataLength": 1024,
+                        "dataLength": 2048,
                         "dataDefaultValue": null,
                         "dataPrimaryKey": "false",
                         "dataAutoIncrement": "false",

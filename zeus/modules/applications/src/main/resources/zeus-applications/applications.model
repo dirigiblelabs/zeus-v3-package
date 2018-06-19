@@ -4,11 +4,15 @@
             {
                 "name": "Applications",
                 "dataName": "ZEUS_APPLICATIONS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "PRIMARY",
                 "menuKey": "applications",
                 "menuLabel": "Applications",
                 "menuIndex": 100,
                 "layoutType": "LIST_MASTER",
+                "perspectiveName": "Applications",
+                "perspectiveIcon": "th-large",
+                "perspectiveOrder": 100,
                 "properties": [
                     {
                         "name": "Id",
@@ -149,11 +153,15 @@
             {
                 "name": "Containers",
                 "dataName": "ZEUS_APPLICATION_CONTAINERS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "DEPENDENT",
                 "menuKey": "containers",
                 "menuLabel": "Containers",
                 "menuIndex": 100,
                 "layoutType": "LIST_DETAILS",
+                "perspectiveName": "Applications",
+                "perspectiveIcon": "th-large",
+                "perspectiveOrder": 100,
                 "properties": [
                     {
                         "name": "Id",
@@ -328,11 +336,15 @@
             {
                 "name": "Services",
                 "dataName": "ZEUS_APPLICATION_SERVICES",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "DEPENDENT",
                 "menuKey": "services",
                 "menuLabel": "Services",
                 "menuIndex": 100,
                 "layoutType": "LIST_DETAILS",
+                "perspectiveName": "Applications",
+                "perspectiveIcon": "th-large",
+                "perspectiveOrder": 100,
                 "properties": [
                     {
                         "name": "Id",
@@ -479,11 +491,15 @@
             {
                 "name": "Variables",
                 "dataName": "ZEUS_APPLICATION_VARIABLES",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "DEPENDENT",
                 "menuKey": "variables",
                 "menuLabel": "Variables",
                 "menuIndex": 100,
                 "layoutType": "LIST_DETAILS",
+                "perspectiveName": "Applications",
+                "perspectiveIcon": "th-large",
+                "perspectiveOrder": 100,
                 "properties": [
                     {
                         "name": "Id",
@@ -602,11 +618,15 @@
             {
                 "name": "Endpoints",
                 "dataName": "ZEUS_APPLICATION_ENDPOINTS",
-                "isPrimary": "true",
+                "dataQuery": null,
+                "type": "DEPENDENT",
                 "menuKey": "endpoints",
                 "menuLabel": "Endpoints",
                 "menuIndex": 100,
                 "layoutType": "LIST_DETAILS",
+                "perspectiveName": "Applications",
+                "perspectiveIcon": "th-large",
+                "perspectiveOrder": 100,
                 "properties": [
                     {
                         "name": "Id",
@@ -632,7 +652,7 @@
                         "widgetFormat": null,
                         "widgetSection": null,
                         "widgetService": null,
-                        "widgetIsMajor": false,
+                        "widgetIsMajor": "true",
                         "widgetDropDownKey": null,
                         "widgetDropDownValue": null
                     },
@@ -688,7 +708,7 @@
                         "widgetFormat": null,
                         "widgetSection": null,
                         "widgetService": null,
-                        "widgetIsMajor": false,
+                        "widgetIsMajor": "true",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Id"
                     }
