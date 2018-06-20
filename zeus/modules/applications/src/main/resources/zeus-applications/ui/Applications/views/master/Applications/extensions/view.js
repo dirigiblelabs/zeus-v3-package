@@ -14,7 +14,7 @@ exports.getView = function() {
 		'name': 'Applications',
 		'label': 'Applications',
 		'factory': 'frame',
-		'region': 'right-bottom',
+		// 'region': 'center-bottom',
 		'link': '/services/v3/web/zeus-applications/ui/Applications/views/master/Applications/index.html'
 	};
 };

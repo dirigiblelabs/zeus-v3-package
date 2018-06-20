@@ -8,11 +8,14 @@
  * SAP - initial API and implementation
  */
 
+var dao = require('zeus-accounts/data/dao/Accounts.js')
+
 exports.getTile = function() {
 	return {
 		'name': 'Accounts',
 		'icon': 'id-card-o',
 		'location': '/services/v3/web/zeus-accounts/ui/Accounts/index.html',
+		'count': dao.count(),
 		'order': '300'
 	};
 };

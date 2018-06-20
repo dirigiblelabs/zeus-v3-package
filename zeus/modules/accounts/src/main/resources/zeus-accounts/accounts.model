@@ -4,7 +4,7 @@
             {
                 "name": "Partners",
                 "dataName": "ZEUS_PARTNERS",
-                "dataCount": "SELECT COUNT(*) FROM PARTNERS",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM ZEUS_PARTNERS",
                 "dataQuery": "",
                 "type": "PRIMARY",
                 "title": "Partners",
@@ -163,7 +163,7 @@
             {
                 "name": "Accounts",
                 "dataName": "ZEUS_ACCOUNTS",
-                "dataCount": "SELECT COUNT(*) FROM ACCOUNTS",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM ZEUS_ACCOUNTS",
                 "dataQuery": "",
                 "type": "PRIMARY",
                 "title": "Accounts",
@@ -294,7 +294,7 @@
             {
                 "name": "Clusters",
                 "dataName": "ZEUS_CLUSTERS",
-                "dataCount": "SELECT COUNT(*) FROM CLUSTERS",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM ZEUS_CLUSTERS",
                 "dataQuery": "",
                 "type": "PRIMARY",
                 "title": "Clusters",

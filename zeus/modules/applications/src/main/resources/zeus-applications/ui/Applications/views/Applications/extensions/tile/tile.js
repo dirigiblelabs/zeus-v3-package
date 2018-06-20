@@ -8,11 +8,14 @@
  * SAP - initial API and implementation
  */
 
+var dao = require('zeus-applications/data/dao/Applications.js')
+
 exports.getTile = function() {
 	return {
 		'name': 'Applications',
 		'icon': 'th-large',
 		'location': '/services/v3/web/zeus-applications/ui/Applications/index.html',
+		'count': dao.count(),
 		'order': '100'
 	};
 };
