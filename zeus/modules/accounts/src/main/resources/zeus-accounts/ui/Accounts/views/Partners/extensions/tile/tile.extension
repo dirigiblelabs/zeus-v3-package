@@ -1,0 +1,5 @@
+{
+	'description': 'Accounts tiles',
+	'extensionPoint': 'launchpad-zeus-tiles',
+	'module': 'zeus-accounts/ui/Accounts/views/Partners/extensions/tile/tile.js'
+}
