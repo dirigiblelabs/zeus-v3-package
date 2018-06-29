@@ -4,29 +4,22 @@ var dao = daoApi.create({
 	'table': 'ZEUS_ACCOUNTS',
 	'properties': [
 		{
-			'name':  'Id',
+			'name': 'Id',
 			'column': 'ZA_ID',
-			'type':'INTEGER',
+			'type': 'INTEGER',
 			'id': true,
-			'required': true
-		},		{
-			'name':  'Name',
+		}, {
+			'name': 'Name',
 			'column': 'ZA_NAME',
-			'type':'VARCHAR',
-			'id': false,
-			'required': true
-		},		{
-			'name':  'Region',
+			'type': 'VARCHAR',
+		}, {
+			'name': 'Region',
 			'column': 'ZA_REGION',
-			'type':'VARCHAR',
-			'id': false,
-			'required': true
-		},		{
-			'name':  'Partner',
+			'type': 'VARCHAR',
+		}, {
+			'name': 'Partner',
 			'column': 'ZA_PARTNER',
-			'type':'INTEGER',
-			'id': false,
-			'required': true
+			'type': 'INTEGER',
 		}]
 });
 exports.list = function(settings) {

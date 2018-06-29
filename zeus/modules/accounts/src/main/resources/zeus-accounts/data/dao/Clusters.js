@@ -4,35 +4,26 @@ var dao = daoApi.create({
 	'table': 'ZEUS_CLUSTERS',
 	'properties': [
 		{
-			'name':  'Id',
+			'name': 'Id',
 			'column': 'ZC_ID',
-			'type':'INTEGER',
+			'type': 'INTEGER',
 			'id': true,
-			'required': true
-		},		{
-			'name':  'Name',
+		}, {
+			'name': 'Name',
 			'column': 'ZC_NAME',
-			'type':'VARCHAR',
-			'id': false,
-			'required': true
-		},		{
-			'name':  'URL',
+			'type': 'VARCHAR',
+		}, {
+			'name': 'URL',
 			'column': 'ZC_URL',
-			'type':'VARCHAR',
-			'id': false,
-			'required': true
-		},		{
-			'name':  'Token',
+			'type': 'VARCHAR',
+		}, {
+			'name': 'Token',
 			'column': 'ZC_TOKEN',
-			'type':'VARCHAR',
-			'id': false,
-			'required': true
-		},		{
-			'name':  'Account',
+			'type': 'VARCHAR',
+		}, {
+			'name': 'Account',
 			'column': 'ZC_ACCOUNT',
-			'type':'INTEGER',
-			'id': false,
-			'required': true
+			'type': 'INTEGER',
 		}]
 });
 exports.list = function(settings) {

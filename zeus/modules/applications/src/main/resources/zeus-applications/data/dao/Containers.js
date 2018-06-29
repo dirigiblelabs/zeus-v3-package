@@ -4,40 +4,35 @@ var dao = daoApi.create({
 	'table': 'ZEUS_APPLICATION_CONTAINERS',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZAC_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'APPLICATION_CONTAINER_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZAC_NAME',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Name',
+			'column': 'APPLICATION_CONTAINER_NAME',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Image',
-			'column': 'ZAC_IMAGE',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Image',
+			'column': 'APPLICATION_CONTAINER_IMAGE',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Protocol',
-			'column': 'ZAC_PROTOCOL',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Protocol',
+			'column': 'APPLICATION_CONTAINER_PROTOCOL',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Port',
-			'column': 'ZAC_PORT',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Port',
+			'column': 'APPLICATION_CONTAINER_PORT',
+			'type': 'INTEGER',
 			'required': true
-		},		{
-			'name':  'Application',
-			'column': 'ZAC_APPLICATION',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Application',
+			'column': 'APPLICATION_CONTAINER_APPLICATION',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

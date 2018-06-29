@@ -4,28 +4,25 @@ var dao = daoApi.create({
 	'table': 'ZEUS_APPLICATION_VARIABLES',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZAV_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'APPLICATION_VARIABLE_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZAV_NAME',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Name',
+			'column': 'APPLICATION_VARIABLE_NAME',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Value',
-			'column': 'ZAV_VALUE',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Value',
+			'column': 'APPLICATION_VARIABLE_VALUE',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Application',
-			'column': 'ZAV_APPLICATION',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Application',
+			'column': 'APPLICATION_VARIABLE_APPLICATION',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

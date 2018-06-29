@@ -4,22 +4,20 @@ var dao = daoApi.create({
 	'table': 'ZEUS_APPLICATION_ENDPOINTS',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZAE_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'APPLICATION_ENDPOINT_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'URL',
-			'column': 'ZAE_URL',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'URL',
+			'column': 'APPLICATION_ENDPOINT_URL',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Application',
-			'column': 'ZAE_APPLICATION',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Application',
+			'column': 'APPLICATION_ENDPOINT_APPLICATION',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

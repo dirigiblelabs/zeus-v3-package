@@ -1,5 +1,5 @@
 {
-	'description': 'Applications view',
-	'extensionPoint': 'launchpad-Applications-view',
-	'module': 'zeus-applications/ui/Applications/views/master/Applications/extensions/view.js'
+	"description": "Applications view",
+	"extensionPoint": "launchpad-Applications-view",
+	"module": "zeus-applications/ui/Applications/views/master/Applications/extensions/view.js"
 }

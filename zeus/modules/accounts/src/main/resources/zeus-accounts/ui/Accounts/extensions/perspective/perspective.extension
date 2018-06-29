@@ -1,5 +1,5 @@
 {
-	'description': 'Accounts perspective',
-	'extensionPoint': 'launchpad-zeus-perspective',
-	'module': 'zeus-accounts/ui/Accounts/extensions/perspective/perspective.js'
+	"description": "Accounts perspective",
+	"extensionPoint": "launchpad-zeus-perspective",
+	"module": "zeus-accounts/ui/Accounts/extensions/perspective/perspective.js"
 }

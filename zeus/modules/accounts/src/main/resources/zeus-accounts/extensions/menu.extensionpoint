@@ -1,4 +1,4 @@
 {
-	'description': 'Extension Point for the zeus-accounts Menu Providers',
-	'name': 'launchpad-zeus-accounts-menu'
+	"description": "Extension Point for the zeus-accounts Menu Providers",
+	"name": "launchpad-zeus-accounts-menu"
 }

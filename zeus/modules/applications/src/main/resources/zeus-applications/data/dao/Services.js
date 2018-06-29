@@ -4,34 +4,30 @@ var dao = daoApi.create({
 	'table': 'ZEUS_APPLICATION_SERVICES',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZAS_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'APPLICATION_SERVICE_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZAS_NAME',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Name',
+			'column': 'APPLICATION_SERVICE_NAME',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Type',
-			'column': 'ZAS_TYPE',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Type',
+			'column': 'APPLICATION_SERVICE_TYPE',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Port',
-			'column': 'ZAS_PORT',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Port',
+			'column': 'APPLICATION_SERVICE_PORT',
+			'type': 'INTEGER',
 			'required': true
-		},		{
-			'name':  'Application',
-			'column': 'ZAS_APPLICATION',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Application',
+			'column': 'APPLICATION_SERVICE_APPLICATION',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

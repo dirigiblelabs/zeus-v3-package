@@ -1,4 +1,4 @@
 {
-	'description': 'Extension Point for the Applications - Applications Master View Providers',
-	'name': 'launchpad-Applications-Applications-view'
+	"description": "Extension Point for the Applications - Applications Master View Providers",
+	"name": "launchpad-Applications-Applications-view"
 }

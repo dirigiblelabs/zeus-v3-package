@@ -21,7 +21,6 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th class="text-capitalize">Id</th>
 					<th class="text-capitalize">URL</th>
 					<th class="text-capitalize">Application</th>
 					<th></th>
@@ -30,10 +29,9 @@
 			<tbody>
 				<tr ng-repeat="next in data">
 					<td>{{$index + 1}}</td>
-					<td>{{next.Id}}</td>
 					<td>{{next.URL}}</td>
 					<td>
-						<i class="close fa fa-2x fa-search" ng-click="openInfoDialog(next)"></i>
+						<i class="close fa fa-bars" ng-click="openInfoDialog(next)" style="margin-right: 0.5em; font-size: 1.4em"></i>
 					</td>
 				</tr>
 			</tbody>

@@ -4,28 +4,25 @@ var dao = daoApi.create({
 	'table': 'ZEUS_APPLICATIONS',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZA_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'APPLICATION_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZA_NAME',
-			'type':'VARCHAR',
-			'id': false,
+		}, {
+			'name': 'Name',
+			'column': 'APPLICATION_NAME',
+			'type': 'VARCHAR',
 			'required': true
-		},		{
-			'name':  'Template',
-			'column': 'ZA_TEMPLATE',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Template',
+			'column': 'APPLICATION_TEMPLATE',
+			'type': 'INTEGER',
 			'required': true
-		},		{
-			'name':  'Cluster',
-			'column': 'ZA_CLUSTER',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Cluster',
+			'column': 'APPLICATION_CLUSTER',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

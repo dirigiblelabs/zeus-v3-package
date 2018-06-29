@@ -4,17 +4,16 @@ var dao = daoApi.create({
 	'table': 'ZEUS_TEMPLATE_SERVICE_TYPES',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZTST_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'SERVICE_TYPE_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZTST_NAME',
-			'type':'VARCHAR',
-			'id': false,
-			'required': false
+		}, {
+			'name': 'Name',
+			'column': 'SERVICE_TYPE_NAME',
+			'type': 'VARCHAR',
+			'required': true
 		}]
 });
 exports.list = function(settings) {

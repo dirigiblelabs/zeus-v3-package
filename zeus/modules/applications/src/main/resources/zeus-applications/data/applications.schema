@@ -1,239 +1,120 @@
 {
-    "schema": {
-        "structures": [
+    'schema': {
+        'structures': [
             {
-                "name": "ZEUS_APPLICATIONS",
-                "type": "TABLE",
-                "columns": 
-                [
+                'name': 'ZEUS_APPLICATIONS',
+                'type': 'TABLE',
+                'columns': [
                     {
-                        "name": "ZA_ID",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "true",
-                        "identity": "true",
-                        "precision": "",
-                        "scale": ""
-                    },
+                        'type': 'INTEGER',
+                        'primaryKey': true,
+                        'identity': true,
+                        'name': 'APPLICATION_ID'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 20,
+                        'name': 'APPLICATION_NAME'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_TEMPLATE'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_CLUSTER'
+                    }]
+            }, {
+                'name': 'ZEUS_APPLICATION_CONTAINERS',
+                'type': 'TABLE',
+                'columns': [
                     {
-                        "name": "ZA_NAME",
-                        "type": "VARCHAR",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
+                        'type': 'INTEGER',
+                        'primaryKey': true,
+                        'identity': true,
+                        'name': 'APPLICATION_CONTAINER_ID'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 20,
+                        'name': 'APPLICATION_CONTAINER_NAME'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 64,
+                        'name': 'APPLICATION_CONTAINER_IMAGE'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 20,
+                        'name': 'APPLICATION_CONTAINER_PROTOCOL'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_CONTAINER_PORT'
+                    }, {
+                        'type': 'INTEGER',
+                        'length': 0,
+                        'name': 'APPLICATION_CONTAINER_APPLICATION'
+                    }]
+            }, {
+                'name': 'ZEUS_APPLICATION_SERVICES',
+                'type': 'TABLE',
+                'columns': [
                     {
-                        "name": "ZA_TEMPLATE",
-                        "type": "INTEGER",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
+                        'type': 'INTEGER',
+                        'length': 0,
+                        'primaryKey': true,
+                        'identity': true,
+                        'name': 'APPLICATION_SERVICE_ID'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 20,
+                        'name': 'APPLICATION_SERVICE_NAME'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 20,
+                        'name': 'APPLICATION_SERVICE_TYPE'
+                    }, {
+                        'type': 'INTEGER',
+                        'length': 0,
+                        'name': 'APPLICATION_SERVICE_PORT'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_SERVICE_APPLICATION'
+                    }]
+            }, {
+                'name': 'ZEUS_APPLICATION_VARIABLES',
+                'type': 'TABLE',
+                'columns': [
                     {
-                        "name": "ZA_CLUSTER",
-                        "type": "INTEGER",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    }
-                ]
-            },
-            {
-                "name": "ZEUS_APPLICATION_CONTAINERS",
-                "type": "TABLE",
-                "columns": 
-                [
+                        'type': 'INTEGER',
+                        'primaryKey': true,
+                        'identity': true,
+                        'name': 'APPLICATION_VARIABLE_ID'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 64,
+                        'name': 'APPLICATION_VARIABLE_NAME'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 128,
+                        'name': 'APPLICATION_VARIABLE_VALUE'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_VARIABLE_APPLICATION'
+                    }]
+            }, {
+                'name': 'ZEUS_APPLICATION_ENDPOINTS',
+                'type': 'TABLE',
+                'columns': [
                     {
-                        "name": "ZAC_ID",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "true",
-                        "identity": "true",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAC_NAME",
-                        "type": "VARCHAR",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAC_IMAGE",
-                        "type": "VARCHAR",
-                        "length": "64",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAC_PROTOCOL",
-                        "type": "VARCHAR",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAC_PORT",
-                        "type": "INTEGER",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAC_APPLICATION",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    }
-                ]
-            },
-            {
-                "name": "ZEUS_APPLICATION_SERVICES",
-                "type": "TABLE",
-                "columns": 
-                [
-                    {
-                        "name": "ZAS_ID",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "true",
-                        "identity": "true",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAS_NAME",
-                        "type": "VARCHAR",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAS_TYPE",
-                        "type": "VARCHAR",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAS_PORT",
-                        "type": "INTEGER",
-                        "length": "20",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAS_APPLICATION",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    }
-                ]
-            },
-            {
-                "name": "ZEUS_APPLICATION_VARIABLES",
-                "type": "TABLE",
-                "columns": 
-                [
-                    {
-                        "name": "ZAV_ID",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "true",
-                        "identity": "true",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAV_NAME",
-                        "type": "VARCHAR",
-                        "length": "64",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAV_VALUE",
-                        "type": "VARCHAR",
-                        "length": "128",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAV_APPLICATION",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    }
-                ]
-            },
-            {
-                "name": "ZEUS_APPLICATION_ENDPOINTS",
-                "type": "TABLE",
-                "columns": 
-                [
-                    {
-                        "name": "ZAE_ID",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "true",
-                        "identity": "true",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAE_URL",
-                        "type": "VARCHAR",
-                        "length": "128",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    },
-                    {
-                        "name": "ZAE_APPLICATION",
-                        "type": "INTEGER",
-                        "length": "0",
-                        "primaryKey": "false",
-                        "identity": "false",
-                        "precision": "",
-                        "scale": ""
-                    }
-                ]
-            }
-        ]
+                        'type': 'INTEGER',
+                        'length': 0,
+                        'primaryKey': true,
+                        'identity': true,
+                        'name': 'APPLICATION_ENDPOINT_ID'
+                    }, {
+                        'type': 'VARCHAR',
+                        'length': 128,
+                        'name': 'APPLICATION_ENDPOINT_URL'
+                    }, {
+                        'type': 'INTEGER',
+                        'name': 'APPLICATION_ENDPOINT_APPLICATION'
+                    }]
+            }        ]
     }
 }

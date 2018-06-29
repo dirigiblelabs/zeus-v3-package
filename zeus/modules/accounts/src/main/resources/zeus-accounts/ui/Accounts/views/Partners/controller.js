@@ -4,7 +4,7 @@ angular.module('page')
 	var messageHub = new FramesMessageHub();
 
 	var message = function(evtName, data){
-		messageHub.post({data: data}, 'zeus.zeus-accounts.Partners.' + evtName);
+		messageHub.post({data: data}, 'zeus.Accounts.Partners.' + evtName);
 	};
 
 	var on = function(topic, callback){
@@ -15,7 +15,7 @@ angular.module('page')
 		message: message,
 		on: on,
 		onEntityRefresh: function(callback) {
-			on('zeus.zeus-accounts.Partners.refresh', callback);
+			on('zeus.Accounts.Partners.refresh', callback);
 		},
 		messageEntityModified: function() {
 			message('modified');

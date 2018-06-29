@@ -1,5 +1,5 @@
 {
-	'description': 'Applications tiles',
-	'extensionPoint': 'launchpad-zeus-tiles',
-	'module': 'zeus-applications/ui/Applications/views/Applications/extensions/tile/tile.js'
+	"description": "Applications tiles",
+	"extensionPoint": "launchpad-zeus-tiles",
+	"module": "zeus-applications/ui/Applications/views/Applications/extensions/tile/tile.js"
 }

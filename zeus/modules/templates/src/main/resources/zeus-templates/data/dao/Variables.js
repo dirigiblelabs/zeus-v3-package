@@ -4,28 +4,25 @@ var dao = daoApi.create({
 	'table': 'ZEUS_TEMPLATE_VARIABLES',
 	'properties': [
 		{
-			'name':  'Id',
-			'column': 'ZTV_ID',
-			'type':'INTEGER',
+			'name': 'Id',
+			'column': 'TEMPLATE_VARIABLE_ID',
+			'type': 'INTEGER',
 			'id': true,
 			'required': true
-		},		{
-			'name':  'Name',
-			'column': 'ZTV_NAME',
-			'type':'VARCHAR',
-			'id': false,
-			'required': false
-		},		{
-			'name':  'Value',
-			'column': 'ZTV_VALUE',
-			'type':'VARCHAR',
-			'id': false,
-			'required': false
-		},		{
-			'name':  'Template',
-			'column': 'ZTV_TEMPLATE',
-			'type':'INTEGER',
-			'id': false,
+		}, {
+			'name': 'Name',
+			'column': 'TEMPLATE_VARIABLE_NAME',
+			'type': 'VARCHAR',
+			'required': true
+		}, {
+			'name': 'Value',
+			'column': 'TEMPLATE_VARIABLE_VALUE',
+			'type': 'VARCHAR',
+			'required': true
+		}, {
+			'name': 'Template',
+			'column': 'TEMPLATE_VARIABLE_TEMPLATE',
+			'type': 'INTEGER',
 			'required': true
 		}]
 });

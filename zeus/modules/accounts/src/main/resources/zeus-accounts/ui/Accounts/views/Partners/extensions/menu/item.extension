@@ -1,5 +1,5 @@
 {
-	'description': 'Partners menu',
-	'extensionPoint': 'shell-zeus-accounts-menu',
-	'module': 'zeus-accounts/views/Partners/menu/item.js'
+	"description": "Partners menu",
+	"extensionPoint": "shell-zeus-accounts-menu",
+	"module": "zeus-accounts/views/Partners/menu/item.js"
 }
