@@ -1,0 +1,1 @@
+1001|minikube|https://<MINIKUBE-IP>:8443|TODO: From the Kubernetes Dashboard, in the "zeus" namespace open "Secrets->zeus-token"|1001

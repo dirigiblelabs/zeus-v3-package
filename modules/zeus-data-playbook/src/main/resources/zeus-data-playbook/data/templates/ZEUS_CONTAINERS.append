@@ -1,0 +1,6 @@
+1001|keycloak|jboss/keycloak|1|8080
+1002|dirigible|dirigiblelabs/dirigible-tomcat|1|8080
+1003|dirigible-keycloak|dirigiblelabs/dirigible-keycloak|1|8080
+1004|redis-master|k8s.gcr.io/redis:e2e|1|6379
+1005|redis-slave|gcr.io/google_samples/gb-redisslave:v1|1|6379
+1006|guestbook|gcr.io/google-samples/gb-frontend:v4|1|80

@@ -40,6 +40,7 @@
 		<module>modules/zeus-applications</module>
 		<module>modules/zeus-core</module>
 		<module>modules/zeus-data</module>
+		<module>modules/zeus-data-playbook</module>
 		<module>modules/zeus-deployer</module>
 		<module>modules/zeus-templates</module>
     </modules>

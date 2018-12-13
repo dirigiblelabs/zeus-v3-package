@@ -1,0 +1,8 @@
+{
+	"guid": "zeus-data-playbook",
+	"repository": {
+		"type": "git",
+		"branch": "master",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-data-playbook.git"
+	}
+}
