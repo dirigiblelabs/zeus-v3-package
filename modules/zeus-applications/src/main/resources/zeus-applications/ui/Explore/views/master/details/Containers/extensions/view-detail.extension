@@ -1,0 +1,5 @@
+{
+	"description": "Containers view",
+	"extensionPoint": "launchpad-zeus-Explore-Applications-view",
+	"module": "zeus-applications/ui/Explore/views/master/details/Containers/extensions/view.js"
+}

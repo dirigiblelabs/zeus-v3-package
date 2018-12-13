@@ -1,0 +1,24 @@
+sudo: required
+services:
+  - docker
+language: java
+jdk:
+  - oraclejdk8
+install: mvn clean install -f pom.xml -DskipTests=true
+before_script:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+script:
+# Dirigible Version (latest | 3.2.5 | 3.3.0 | ...)
+  - export RELEASE_VERSION=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+
+# Image dirigiblelabs/dirigible-tomcat
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$RELEASE_VERSION
+  - docker push $REPO:$RELEASE_VERSION
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+    - REPO=dirigiblelabs/zeus
+    - secure: "JReDMlzZTwnHcfzJp48AudDGg+jlrsL2jldKTVnJwmEbN95rUOcfLez+jnZgDTWzyjFHexC3E67AoIaU91niX6sbSMYrwH9xg549MBDoYp3zfC0rEXuJl7sHIchON3kbrSGiSounDeDrtGEzxyhx4kjvOQPpGOua0tzXG6U4k26FDSVV3WKIR/3YPOxaSJdKzDpGM0s3S1NKgtPbaaD7UNcgN+vfZtFjgYiPkoyVllZdhOsuhmGe2F5ybyav8ABm2J7CsgmL1hO3b61yLYgOl9L+cizTwEOrEn57WKcxh/9ml9iEIxohd3Y1ILUzsQf7zzdZILrtmi/Be/A17Rar6Ir3beR7TaXcZf/5wtmy3s5NoOV+fttpFnbm0AhLkIPa5D1OmvmVZOpQTMK6+eDnwkUt3XM0nuuKKeuwivNG2ni9cT90Ue348Q2/0kTVNxEAM9Oo/MSz5NVlxFoavXs3Hl7/hDbqa0xqI7NdEgFEGPVkMgZuxZcqR2B0R2GTTL6AaQsh2Gz0Y+urY5qqgVNQ/+JrNWNwjL5r2PKsbvKQxhi9amSSAyBb27+bpD2cFmc4chqYdhrYy9iQdhppy+XkZqDPpHet1W0NVD2/q1xl20j1QFNViB4SF1nofYLtlXZreM991gB0xkUPN3gkfPb02YGDVo65R+t9QKukOnhIAZQ="
+    - secure: "4GYBAUdI+ersQpFmXMl7HpYsZPPGFkKYcB2EPa6/5MMFIOy7Xk4peWB9Yp8jD6YQZheEQJbLnlLbiRO3HN4mS0tHxDx+EQwqX8rXwhzC1Gt35neJKZ9I2woEwnWraqNvuglhs+rX1tyXLOH+pqNhGau0mNcIpZXWUmmfLeDJ2PIa45Qcs/ONIootR0bbY2oD4Kme2nEhUu7VQ1EHuHI61Pj7f2BRD5qaBYUhTsXJZ8GWP9Ar5FZP7KHlPwsi8UBz0zlx2jRPNAeN5rc3iPXhaAhI9XjfcyYNOUmj5ZBT28NHqQPb9w72iCOwieUQm14+y4ejWWvxCDKoboYi08GeN1VougKFPke0fKEcfuEImZ/ZKj1ihkMwDjCr3rwYp3tMWE6inMDJhZ6m6oE9J5GhgX0cO7R+VqABnmMfFQENXcSymtsPglcjOHltz4vJtAERRNB2MTvOeREM1yYY7gzRHVkH66vmA5o3icowiAIQBPW8ckochBGvL2IuRE4Ej0/VtxEeoXkXYXV5IiawjklKYUu9mfskYzuuYp/i+YXJ7En1XNuwP8tc351qfw1C33bqeWuihnFVrlh+FUhmuCkv9/6q9dK72FkJkjGnk+CN2cN4oisn63bK2+em+XTNjD149cOOQvRyjb0+KqYao5V7B3i6Bi67sRZUjBY8ALNAJKw="

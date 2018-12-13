@@ -1,0 +1,5 @@
+{
+	"description": "Clusters view",
+	"extensionPoint": "launchpad-zeus-Deliver-view",
+	"module": "zeus-accounts/ui/Deliver/views/Clusters/extensions/view.js"
+}

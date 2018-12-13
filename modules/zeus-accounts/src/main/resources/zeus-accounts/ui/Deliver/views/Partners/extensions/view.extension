@@ -1,0 +1,5 @@
+{
+	"description": "Partners view",
+	"extensionPoint": "launchpad-zeus-Deliver-view",
+	"module": "zeus-accounts/ui/Deliver/views/Partners/extensions/view.js"
+}

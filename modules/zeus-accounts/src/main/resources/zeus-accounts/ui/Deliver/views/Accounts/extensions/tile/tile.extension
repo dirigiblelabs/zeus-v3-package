@@ -1,0 +1,5 @@
+{
+	"description": "Deliver tiles",
+	"extensionPoint": "launchpad-zeus-tiles",
+	"module": "zeus-accounts/ui/Deliver/views/Accounts/extensions/tile/tile.js"
+}

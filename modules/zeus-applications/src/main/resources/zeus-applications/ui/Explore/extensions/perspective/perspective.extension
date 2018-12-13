@@ -1,0 +1,5 @@
+{
+	"description": "Explore perspective",
+	"extensionPoint": "launchpad-zeus-perspective",
+	"module": "zeus-applications/ui/Explore/extensions/perspective/perspective.js"
+}

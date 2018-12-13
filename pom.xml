@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
+	<name>Zeus - Parent</name>
+	<description>Zeus - Parent</description>
+	<groupId>io.dirigible</groupId>
+	<artifactId>zeus-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+    <inceptionYear>2018</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>https://www.eclipse.org/legal/epl-v10.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<url>http://www.dirigible.io</url>
+	<organization>
+		<name>Eclipse Foundation</name>
+		<url>http://www.eclipse.org</url>
+	</organization>
+	<scm>
+		<url>https://github.com/dirigiblelabs/zeus-v3-package</url>
+	</scm>
+
+	<modules>
+		<module>modules/client-kubernetes</module>
+		<module>modules/zeus-accounts</module>
+		<module>modules/zeus-applications</module>
+		<module>modules/zeus-core</module>
+		<module>modules/zeus-data</module>
+		<module>modules/zeus-deployer</module>
+		<module>modules/zeus-templates</module>
+    </modules>
+
+	<properties>
+		<maven.resource.plugin.version>3.0.2</maven.resource.plugin.version>
+		<maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
+		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+		<maven.scm.plugin.version>1.9</maven.scm.plugin.version>
+	</properties>
+</project>

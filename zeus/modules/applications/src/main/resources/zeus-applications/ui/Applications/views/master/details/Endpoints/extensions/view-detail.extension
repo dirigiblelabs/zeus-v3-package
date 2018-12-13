@@ -1,5 +1,0 @@
-{
-	"description": "Endpoints view",
-	"extensionPoint": "launchpad-Applications-Applications-view",
-	"module": "zeus-applications/ui/Applications/views/master/details/Endpoints/extensions/view.js"
-}
