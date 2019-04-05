@@ -1,11 +1,42 @@
 # Zeus - Package
 
-[![Build Status](https://secure.travis-ci.org/dirigiblelabs/zeus-v3-package.png)](http://travis-ci.org/dirigiblelabs/zeus-v3-package)
 [![Eclipse License](http://img.shields.io/badge/license-Eclipse-brightgreen.svg)](LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/zeus-v3-package.svg)](https://github.com/dirigiblelabs/zeus-v3-package/graphs/contributors)
 
 
 ## Overview
+
+## Kubernetes
+
+#### Minikube:
+
+- Start: 
+  
+  `minikube start`
+
+- Deploy:
+
+  `kubectl create -f https://raw.githubusercontent.com/promart-io/zeus-v3-package/master/zeus/zeus.yml`
+
+- Access:
+
+  - Get IP: 
+      
+    `minikube ip`
+
+  - Get port: 
+  
+    `kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'`
+
+  - Construct URL: {IP}:{Port}
+
+- Undeploy:
+
+  `kubectl delete -f https://raw.githubusercontent.com/promart-io/zeus-v3-package/master/zeus/zeus.yml`
+
+- Stop:
+
+  `minikube stop`
 
 ## Docker
 Build an image without uploading it:

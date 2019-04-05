@@ -1,0 +1,3 @@
+1001|Keycloak|false|1|
+1002|Eclipse Dirigible|true|1|/usr/local/tomcat/dirigible
+1004|PostgreSQL|true|1|/var/lib/postgresql/data

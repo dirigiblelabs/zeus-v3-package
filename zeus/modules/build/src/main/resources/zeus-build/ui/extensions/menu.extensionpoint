@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the zeus-build Menu Providers",
+	"name": "launchpad-zeus-build-menu"
+}

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
@@ -9,13 +9,13 @@
 	</parent>
 
 	<name>Zeus - Parent</name>
-	<description>Zeus - Parent</description>
-	<groupId>io.dirigible</groupId>
+	<description>Zeus Parent</description>
+	<groupId>io.dirigible.zeus</groupId>
 	<artifactId>zeus-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-    <inceptionYear>2018</inceptionYear>
+	<inceptionYear>2018</inceptionYear>
 
 	<licenses>
 		<license>
@@ -31,19 +31,12 @@
 		<url>http://www.eclipse.org</url>
 	</organization>
 	<scm>
-		<url>https://github.com/dirigiblelabs/zeus-v3-package</url>
+		<url>https://github.com/eclipse/dirigible</url>
 	</scm>
 
 	<modules>
-		<module>modules/client-kubernetes</module>
-		<module>modules/zeus-accounts</module>
-		<module>modules/zeus-applications</module>
-		<module>modules/zeus-core</module>
-		<module>modules/zeus-data</module>
-		<module>modules/zeus-data-playbook</module>
-		<module>modules/zeus-deployer</module>
-		<module>modules/zeus-templates</module>
-    </modules>
+		<module>zeus/modules</module>
+	</modules>
 
 	<properties>
 		<maven.resource.plugin.version>3.0.2</maven.resource.plugin.version>

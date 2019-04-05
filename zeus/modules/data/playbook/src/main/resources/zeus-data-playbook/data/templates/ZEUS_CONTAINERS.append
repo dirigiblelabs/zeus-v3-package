@@ -1,0 +1,5 @@
+1001|keycloak|jboss/keycloak|1|8080
+1002|dirigible|dirigiblelabs/dirigible-tomcat|1|8080
+1003|dirigible-keycloak|dirigiblelabs/dirigible-keycloak|1|8080
+1004|postgres|postgres|1|5432
+1005|promart|promartio/promart|1|8080

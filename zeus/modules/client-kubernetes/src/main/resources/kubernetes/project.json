@@ -1,0 +1,8 @@
+{
+	"guid": "kubernetes",
+	"repository": {
+		"type": "git",
+		"branch": "master",
+		"url": "https://github.com/dirigiblelabs/client-kubernetes.git"
+	}
+}

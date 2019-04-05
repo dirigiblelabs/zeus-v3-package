@@ -1,0 +1,5 @@
+{
+	"description": "Deliver view",
+	"extensionPoint": "launchpad-zeus-Deliver-ServiceAccounts-view",
+	"module": "zeus-build/ui/Deliver/views/master/ServiceAccounts/master/extensions/view.js"
+}

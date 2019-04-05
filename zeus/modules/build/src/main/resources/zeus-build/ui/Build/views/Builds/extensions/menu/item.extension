@@ -1,0 +1,5 @@
+{
+	"description": "Builds menu",
+	"extensionPoint": "shell-zeus-build-menu",
+	"module": "zeus-build/views/Builds/menu/item.js"
+}

@@ -1,0 +1,109 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "ZEUS_BUILDS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
+                        "name": "IMAGE"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "GITURL"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
+                        "name": "GITREVISION"
+                    }, {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SERVICEACCOUNT"
+                    }]
+            }, {
+                "name": "ZEUS_SERVICE_ACCOUNTS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "NAME"
+                    }]
+            }, {
+                "name": "ZEUS_SECRETS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    }, {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SERVICEACCOUNT"
+                    }, {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SECRETTYPE"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "USERNAME"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "PASSWORD"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "HOST"
+                    }]
+            }, {
+                "name": "ZEUS_SECRET_TYPES",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "NAME"
+                    }]
+            }]
+    }
+}
