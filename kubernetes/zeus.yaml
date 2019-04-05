@@ -112,8 +112,8 @@ spec:
               value: "admin"
             - name: KEYCLOAK_REALM
               value: "zeus"
-            # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
             - name: KEYCLOAK_AUTH_SERVER_URL
+              # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
               value: "https://auth.<your-domain-name>/auth"
             - name: DIRIGIBLE_DATABASE_PROVIDER
               value: "custom"
@@ -125,22 +125,21 @@ spec:
               value: "org.postgresql.Driver"
             - name: POSTGRES_URL
               value: "jdbc:postgresql://zeus-database-jdbc:5432/zeus"
-            # The PostgreSQL user
             - name: POSTGRES_USERNAME
+              # The PostgreSQL user
               value: "zeus"
-            # The PostgreSQL user's password
             - name: POSTGRES_PASSWORD
+              # The PostgreSQL user's password
               value: "zeus"
             - name: DIRIGIBLE_SCHEDULER_DATABASE_DRIVER
               value: "org.postgresql.Driver"
-            # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
             - name: DIRIGIBLE_SCHEDULER_DATABASE_URL
               value: "jdbc:postgresql://zeus-database-jdbc:5432/zeus"
-            # The PostgreSQL user
             - name: DIRIGIBLE_SCHEDULER_DATABASE_USER
+              # The PostgreSQL user
               value: "zeus"
-            # The PostgreSQL user's password
             - name: DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD
+              # The PostgreSQL user's password
               value: "zeus"
             - name: DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE
               value: "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate"
