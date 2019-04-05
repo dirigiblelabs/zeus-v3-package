@@ -41,7 +41,8 @@ spec:
     spec:
       containers:
         - name: zeus
-          image: promartio/zeus
+          image: dirigiblelabs/zeus
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
