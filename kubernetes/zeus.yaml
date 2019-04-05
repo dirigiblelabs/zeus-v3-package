@@ -22,6 +22,60 @@ subjects:
     name: service-account
     namespace: zeus
 ---
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: zeus-database
+  namespace: zeus
+spec:
+  serviceName: zeus-database-jdbc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zeus-database
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: zeus-database
+          image: postgres
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: root
+              mountPath: /var/lib/postgresql/data
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POSTGRES_USER
+              value: zeus
+            - name: POSTGRES_PASSWORD
+              value: zeus
+      serviceAccountName: service-account
+  volumeClaimTemplates:
+    - metadata:
+        name: root
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zeus-database-jdbc
+  namespace: zeus
+  labels:
+    app: zeus-database
+spec:
+  ports:
+  - port: 5432
+  type: ClusterIP
+  selector:
+    app: zeus-database
+---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -61,6 +115,35 @@ spec:
             # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
             - name: KEYCLOAK_AUTH_SERVER_URL
               value: "https://auth.<your-domain-name>/auth"
+            - name: DIRIGIBLE_DATABASE_PROVIDER
+              value: "custom"
+            - name: DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES
+              value: "POSTGRES"
+            - name: DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT
+              value: "POSTGRES"
+            - name: POSTGRES_DRIVER
+              value: "org.postgresql.Driver"
+            - name: POSTGRES_URL
+              value: "jdbc:postgresql://zeus-database-jdbc:5432/zeus"
+            # The PostgreSQL user
+            - name: POSTGRES_USERNAME
+              value: "zeus"
+            # The PostgreSQL user's password
+            - name: POSTGRES_PASSWORD
+              value: "zeus"
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_DRIVER
+              value: "org.postgresql.Driver"
+            # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_URL
+              value: "jdbc:postgresql://zeus-database-jdbc:5432/zeus"
+            # The PostgreSQL user
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_USER
+              value: "zeus"
+            # The PostgreSQL user's password
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD
+              value: "zeus"
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE
+              value: "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate"
 ---
 apiVersion: v1
 kind: Service
