@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zeus
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: service-account
+  namespace: zeus
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: auth:admin-role:zeus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: auth:admin-role
+subjects:
+  - kind: ServiceAccount
+    name: service-account
+    namespace: zeus
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: zeus
+  namespace: zeus
+  labels:
+    app: zeus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zeus
+  template:
+    metadata:
+      labels:
+        app: zeus
+    spec:
+      containers:
+        - name: zeus
+          image: promartio/zeus
+          ports:
+            - containerPort: 8080
+          env:
+            - name: "DIRIGIBLE_HOME_URL"
+              value: "/services/v3/web/zeus/"
+            - name: "DIRIGIBLE_THEME_DEFAULT"
+              value: "fiori"
+            - name: KEYCLOAK_CONFIDENTIAL_PORT
+              value: "443"
+            - name: KEYCLOAK_SSL_REQUIRED
+              value: "none"
+            - name: KEYCLOAK_CLIENT_ID
+              value: "admin"
+            - name: KEYCLOAK_REALM
+              value: "zeus"
+            # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+            - name: KEYCLOAK_AUTH_SERVER_URL
+              value: "https://auth.<your-domain-name>/auth"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zeus
+  namespace: zeus
+  labels:
+    app: zeus
+spec:
+  ports:
+  - port: 8080
+  type: ClusterIP
+  selector:
+    app: zeus
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: "nginx"
+  name: zeus
+  namespace: zeus
+spec:
+  tls:
+  # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+  - hosts:
+    - zeus.<your-domain-name>
+    secretName: zeus-certificate
+  rules:
+    # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+    - host: zeus.<your-domain-name>
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: zeus
+              servicePort: 8080
