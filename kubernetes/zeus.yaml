@@ -143,6 +143,8 @@ spec:
               value: "zeus"
             - name: DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE
               value: "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate"
+            - name: DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE
+              value: "false"
 ---
 apiVersion: v1
 kind: Service
