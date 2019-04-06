@@ -11,9 +11,10 @@
 exports.getView = function(relativePath) {
 	return {
 		'id': 'HTML5Applications',
-		'name': 'HTML5Applications',
-		'label': 'HTML5 Applications',
+		'name': 'HTML5 Application',
+		'label': 'HTML5 Application',
 		'factory': 'frame',
-		'link': relativePath + 'services/v3/web/zeus-applications-html5/ui/index.html'
+		// 'region': 'center-bottom',
+		'link': relativePath + 'services/v3/web/zeus-applications-html5/ui/Explore/views/HTML5Applications/index.html'
 	};
 };

@@ -1,0 +1,5 @@
+{
+	"description": "HTML5Applications menu",
+	"extensionPoint": "shell-zeus-applications-html5-menu",
+	"module": "zeus-applications-html5/views/HTML5Applications/menu/item.js"
+}

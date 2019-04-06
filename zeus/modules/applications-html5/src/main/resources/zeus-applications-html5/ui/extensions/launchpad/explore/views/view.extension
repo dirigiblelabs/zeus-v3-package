@@ -1,5 +1,0 @@
-{
-	"description":"HTML5 Applications view in Launchpad Explore",
-	"extensionPoint":"launchpad-zeus-Explore-view",
-	"module":"zeus-applications-html5/ui/extensions/launchpad/explore/views/view.js"
-}

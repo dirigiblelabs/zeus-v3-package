@@ -1,5 +1,0 @@
-{
-	"description": "HTML5 Applications tile in Launchpad",
-	"extensionPoint": "launchpad-zeus-tiles",
-	"module": "zeus-applications-html5/ui/extensions/launchpad/tiles/tile.js"
-}

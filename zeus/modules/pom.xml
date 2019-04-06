@@ -26,6 +26,7 @@
       <module>data/playbook</module>
       <module>applications</module>
       <module>applications-html5</module>
+      <module>applications-html5-process</module>
       <module>applications-java</module>
       <module>build</module>
       <module>build-process</module>

@@ -8,14 +8,11 @@
  * SAP - initial API and implementation
  */
 
-var dao = require('zeus-applications-html5/data/dao').create()
-exports.getTile = function(relativePath) {
+exports.getMenu = function() {
 	return {
-		'name': 'HTML5 Applications',
-		'group': 'Explore',
-		'icon': 'th-large',
-		'location': relativePath + 'services/v3/web/zeus-applications/ui/Explore/index.html',
-		'count':  dao.count(),
-		'order': '100'
+		'id': 'HTML5Applications',
+		'name': 'HTML5Applications',
+		'link': '#',
+		'order': 800
 	};
 };

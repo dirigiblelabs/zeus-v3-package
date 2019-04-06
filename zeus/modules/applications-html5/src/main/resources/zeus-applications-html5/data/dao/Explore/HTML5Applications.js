@@ -2,7 +2,7 @@ var query = require("db/v4/query");
 var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 var dao = daoApi.create({
-	table: "ZEUS_BUILDS",
+	table: "ZEUS_APPLICATIONS_HTML5",
 	properties: [
 		{
 			name: "Id",
@@ -14,10 +14,6 @@ var dao = daoApi.create({
 			column: "NAME",
 			type: "VARCHAR",
 		}, {
-			name: "Image",
-			column: "IMAGE",
-			type: "VARCHAR",
-		}, {
 			name: "GitUrl",
 			column: "GITURL",
 			type: "VARCHAR",
@@ -26,9 +22,17 @@ var dao = daoApi.create({
 			column: "GITREVISION",
 			type: "VARCHAR",
 		}, {
-			name: "ServiceAccount",
-			column: "SERVICEACCOUNT",
-			type: "INTEGER",
+			name: "System",
+			column: "SYSTEM",
+			type: "VARCHAR",
+		}, {
+			name: "AuthorizationHeader",
+			column: "AUTHORIZATIONHEADER",
+			type: "VARCHAR",
+		}, {
+			name: "LocalPath",
+			column: "LOCALPATH",
+			type: "VARCHAR",
 		}]
 });
 
@@ -43,7 +47,7 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "ZEUS_BUILDS",
+		table: "ZEUS_APPLICATIONS_HTML5",
 		key: {
 			name: "Id",
 			column: "ID",
@@ -56,7 +60,7 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "ZEUS_BUILDS",
+		table: "ZEUS_APPLICATIONS_HTML5",
 		key: {
 			name: "Id",
 			column: "ID",
@@ -69,7 +73,7 @@ exports.delete = function(id) {
 	var entity = this.get(id);
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "ZEUS_BUILDS",
+		table: "ZEUS_APPLICATIONS_HTML5",
 		key: {
 			name: "Id",
 			column: "ID",
@@ -84,7 +88,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM ZEUS_BUILDS");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM ZEUS_APPLICATIONS_HTML5");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -96,5 +100,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("zeus-build/Build/Builds/" + operation).send(JSON.stringify(data));
+	producer.queue("zeus-applications-html5/Explore/HTML5Applications/" + operation).send(JSON.stringify(data));
 }

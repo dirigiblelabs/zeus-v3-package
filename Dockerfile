@@ -7,6 +7,7 @@ FROM dirigiblelabs/dirigible-base-platform-keycloak:$DIRIGIBLE_VERSION
 COPY zeus/modules/accounts/target/zeus-accounts-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 COPY zeus/modules/applications/target/zeus-applications-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 COPY zeus/modules/applications-html5/target/zeus-applications-html5-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
+COPY zeus/modules/applications-html5-process/target/zeus-applications-html5-process-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 COPY zeus/modules/applications-java/target/zeus-applications-java-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 COPY zeus/modules/build/target/zeus-build-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 COPY zeus/modules/build-process/target/zeus-build-process-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib

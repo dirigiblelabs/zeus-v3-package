@@ -1,0 +1,48 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "ZEUS_APPLICATIONS_HTML5",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "NAME"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "GITURL"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "GITREVISION"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "SYSTEM"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 512,
+                        "nullable": true,
+                        "name": "AUTHORIZATIONHEADER"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "LOCALPATH"
+                    }]
+            }]
+    }
+}

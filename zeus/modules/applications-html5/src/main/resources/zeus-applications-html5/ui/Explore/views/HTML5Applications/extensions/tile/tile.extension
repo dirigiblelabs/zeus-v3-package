@@ -1,0 +1,5 @@
+{
+	"description": "Explore tiles",
+	"extensionPoint": "launchpad-zeus-tiles",
+	"module": "zeus-applications-html5/ui/Explore/views/HTML5Applications/extensions/tile/tile.js"
+}

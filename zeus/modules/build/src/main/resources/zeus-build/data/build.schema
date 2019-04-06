@@ -16,6 +16,11 @@
                         "type": "VARCHAR",
                         "length": 64,
                         "nullable": true,
+                        "name": "NAME"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
                         "name": "IMAGE"
                     }, {
                         "type": "VARCHAR",

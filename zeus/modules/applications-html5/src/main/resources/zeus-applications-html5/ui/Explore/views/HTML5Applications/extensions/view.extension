@@ -1,0 +1,5 @@
+{
+	"description": "HTML5Applications view",
+	"extensionPoint": "launchpad-zeus-Explore-view",
+	"module": "zeus-applications-html5/ui/Explore/views/HTML5Applications/extensions/view.js"
+}

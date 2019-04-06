@@ -14,7 +14,7 @@
 
 <body ng-controller="PageController">
 	<div class="page-header container">
-		<h1>Manage Builds</h1>
+		<h1>Manage HTML5 Application</h1>
 	</div>
 	<div class="container">
 		<button type="button" ng-click="openNewDialog()" class="btn btn-lg btn-primary pull-right">New</button>
@@ -23,9 +23,8 @@
 				<tr>
 					<th>#</th>
 					<th class="text-capitalize">Name</th>
-					<th class="text-capitalize">Image</th>
-					<th class="text-capitalize">URL</th>
-					<th class="text-capitalize">Revision</th>
+					<th class="text-capitalize">Git URL</th>
+					<th class="text-capitalize">Git Revision</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -33,7 +32,6 @@
 				<tr ng-repeat="next in data">
 					<td>{{(dataPage - 1) * dataLimit + $index + 1}}</td>
 					<td>{{next.Name}}</td>
-					<td>{{next.Image}}</td>
 					<td>{{next.GitUrl}}</td>
 					<td>{{next.GitRevision}}</td>
 					<td>
@@ -62,24 +60,28 @@
 							<input type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name">
 						</div>
 						<div class="form-group">
-							<label>Image</label>
-							<input type="text" class="form-control" placeholder="Enter image" ng-model="entity.Image">
+							<label>Git URL</label>
+							<input type="text" class="form-control" placeholder="Enter git url" ng-model="entity.GitUrl">
 						</div>
 						<div class="form-group">
-							<label>URL</label>
-							<input type="text" class="form-control" placeholder="Enter url" ng-model="entity.GitUrl">
+							<label>Git Revision</label>
+							<input type="text" class="form-control" placeholder="Enter git revision" ng-model="entity.GitRevision">
 						</div>
 						<div class="form-group">
-							<label>Revision</label>
-							<input type="text" class="form-control" placeholder="Enter revision" ng-model="entity.GitRevision">
+							<label>System</label>
+							<input type="text" class="form-control" placeholder="Enter system" ng-model="entity.System">
 						</div>
 						<div class="form-group">
-							<label>Service Account</label>
-							<select class="form-control" ng-options="o.Id as o.Name for o in serviceaccountOptions" ng-model="entity.ServiceAccount"></select>
+							<label>Authorization Header</label>
+							<textarea class="form-control" placeholder="Enter authorization header" ng-model="entity.AuthorizationHeader"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Local Path</label>
+							<input type="text" class="form-control" placeholder="Enter local path" ng-model="entity.LocalPath">
 						</div>
 					</form>
 					<div ng-show="actionType === 'delete'">
-						You are going to delete <b>Builds</b> with <b>Id = {{entity.Id}}</b>.
+						You are going to delete <b>HTML5Applications</b> with <b>Id = {{entity.Id}}</b>.
 					</div>
 				</div>
 				<div class="modal-footer">
