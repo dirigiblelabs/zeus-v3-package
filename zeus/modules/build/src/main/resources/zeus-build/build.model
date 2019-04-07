@@ -436,7 +436,7 @@
                         "widgetFormat": "",
                         "widgetSection": "",
                         "widgetService": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
                         "widgetDropDownKey": "",
                         "widgetDropDownValue": ""
                     },
