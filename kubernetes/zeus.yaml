@@ -22,7 +22,6 @@ subjects:
     name: service-account
     namespace: zeus
 ---
----
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
@@ -159,7 +158,7 @@ spec:
               value: "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate"
             - name: DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE
               value: "false"
-# ---
+---
 apiVersion: v1
 kind: Service
 metadata:
