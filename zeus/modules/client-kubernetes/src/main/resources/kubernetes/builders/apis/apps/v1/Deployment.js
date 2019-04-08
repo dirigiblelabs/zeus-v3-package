@@ -39,6 +39,7 @@ function Spec() {
 		function Spec() {
 
 			this.containers = [];
+			this.volumes = [];
 
 			Spec.prototype.getContainers = function() {
 				return this.containers;
@@ -50,6 +51,18 @@ function Spec() {
 
 			Spec.prototype.addContainer = function(container) {
 				this.containers.push(container);
+			};
+
+			Spec.prototype.getVolumes = function() {
+				return this.volumes;
+			};
+
+			Spec.prototype.setVolumes = function(volumes) {
+				this.volumes = volumes;
+			};
+
+			Spec.prototype.addVolume = function(volume) {
+				this.volumes.push(volume);
 			};
 		}
 	}
@@ -70,8 +83,9 @@ method.build = function() {
 					labels: EntityBuilder.getMetadata.call(this).getLabels()
 				},
 				spec: {
-					containers: this.getSpec().getTemplate().getSpec().getContainers()
-				}
+					containers: this.getSpec().getTemplate().getSpec().getContainers(),
+					volumes: this.getSpec().getTemplate().getSpec().getVolumes()
+				},
 			}
 		}
 	};

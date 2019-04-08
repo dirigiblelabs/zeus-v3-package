@@ -65,6 +65,7 @@ function Spec() {
 		function Spec() {
 
 			this.containers = [];
+			this.volumes = [];
 			this.terminationGracePeriodSeconds = 10;
 			this.serviceAccountName = "service-account";
 
@@ -84,16 +85,28 @@ function Spec() {
 				this.containers = containers;
 			};
 
+			Spec.prototype.addContainer = function(container) {
+				this.containers.push(container);
+			};
+
+			Spec.prototype.getVolumes = function() {
+				return this.volumes;
+			};
+
+			Spec.prototype.setVolumes = function(volumes) {
+				this.volumes = volumes;
+			};
+
+			Spec.prototype.addVolumes = function(volume) {
+				this.volumes.push(volume);
+			};
+
 			Spec.prototype.getServiceAccountName = function() {
 				return this.serviceAccountName;
 			};
 
 			Spec.prototype.setServiceAccountName = function(serviceAccountName) {
 				this.serviceAccountName = serviceAccountName;
-			};
-
-			Spec.prototype.addContainer = function(container) {
-				this.containers.push(container);
 			};
 		}
 	}
@@ -117,6 +130,7 @@ method.build = function() {
 				spec: {
 					terminationGracePeriodSeconds: this.getSpec().getTemplate().getSpec().getTerminationGracePeriodSeconds(),
 					containers: this.getSpec().getTemplate().getSpec().getContainers(),
+					volumes: this.getSpec().getTemplate().getSpec().getVolumes(),
 					serviceAccountName: this.getSpec().getTemplate().getSpec().getServiceAccountName()
 				}
 			},

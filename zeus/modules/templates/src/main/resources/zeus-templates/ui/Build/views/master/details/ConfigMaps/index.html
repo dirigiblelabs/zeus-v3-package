@@ -14,7 +14,7 @@
 
 <body ng-controller="PageController">
 	<div class="page-header container">
-		<h1>Manage Templates</h1>
+		<h1>Manage ConfigMaps</h1>
 	</div>
 	<div class="container">
 		<button type="button" ng-click="openNewDialog()" class="btn btn-lg btn-primary pull-right">New</button>
@@ -23,17 +23,17 @@
 				<tr>
 					<th>#</th>
 					<th class="text-capitalize">Name</th>
-					<th class="text-capitalize">Stateful</th>
-					<th class="text-capitalize">Replicas</th>
+					<th class="text-capitalize">Key</th>
+					<th class="text-capitalize">Mount Path</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="next in data" ng-class="{'bg-info':next && next.Id == selectedEntity.Id}" style="cursor: pointer;" ng-click="selectEntity(next)">
+				<tr ng-repeat="next in data">
 					<td>{{(dataPage - 1) * dataLimit + $index + 1}}</td>
 					<td>{{next.Name}}</td>
-					<td><input type="checkbox" ng-model="next.IsStateful" disabled></td>
-					<td>{{next.Replicas}}</td>
+					<td>{{next.Key}}</td>
+					<td>{{next.MountPath}}</td>
 					<td>
 						<i class="close fa fa-remove" ng-click="openDeleteDialog(next)" style="font-size: 1.4em"></i>
 						<i class="close fa fa-bars" ng-click="openEditDialog(next)" style="margin-right: 0.5em; font-size: 1.4em"></i>
@@ -61,24 +61,20 @@
 							<input type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name">
 						</div>
 						<div class="form-group">
-							<label>Stateful</label>
-							<input type="checkbox" ng-model="entity.IsStateful">
-						</div>
-						<div class="form-group">
-							<label>Replicas</label>
-							<input type="number" class="form-control" placeholder="Enter replicas" ng-model="entity.Replicas">
+							<label>Key</label>
+							<input type="text" class="form-control" placeholder="Enter key" ng-model="entity.Key">
 						</div>
 						<div class="form-group">
 							<label>Mount Path</label>
 							<input type="text" class="form-control" placeholder="Enter mount path" ng-model="entity.MountPath">
 						</div>
 						<div class="form-group">
-							<label>Mount Config Maps</label>
-							<input type="checkbox" ng-model="entity.MountConfigMaps">
+							<label>Data</label>
+							<textarea class="form-control" placeholder="Enter data" ng-model="entity.Data"></textarea>
 						</div>
 					</form>
 					<div ng-show="actionType === 'delete'">
-						You are going to delete <b>Templates</b> with <b>Id = {{entity.Id}}</b>.
+						You are going to delete <b>ConfigMaps</b> with <b>Id = {{entity.Id}}</b>.
 					</div>
 				</div>
 				<div class="modal-footer">
