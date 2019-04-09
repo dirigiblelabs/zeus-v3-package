@@ -15,8 +15,9 @@ mvn clean install
 ```
 
 > **NOTE:** If new module is being added, then a coresponding entry should be made in the Dockerfile, e.g:
-
-> ```COPY zeus/modules/applications-html5-process/target/zeus-applications-html5-process-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib```
+```Docker
+COPY zeus/modules/applications-html5-process/target/zeus-applications-html5-process-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
+```
 
 #### Docker Image
 ```
