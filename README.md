@@ -14,7 +14,21 @@ mvn clean install -P content
 mvn clean install
 ```
 
-> **NOTE:** If new module is being added, then a coresponding entries in **zeus/modules/pom.xml** and **Dockerfile** should be made, e.g:
+#### Docker Image
+```
+docker build -t zeus .
+docker tag zeus dirigiblelabs/zeus
+docker push dirigiblelabs/zeus
+```
+
+## Deploy
+If this is a fresh deployment of Zeus, edit **kubernetes/zeus.yaml** and replace the placeholders where needed, e.g: ``<your-domain-name>``. If Zeus deployment already exists and the placeholder values are replaced, comment/uncomment only the parts that should be updated, e.g.: Service, Deployment, ...
+```
+kubectl create -f kubernetes/zeus.yaml
+```
+
+## Add New Module 
+If new module is being added, then a coresponding entries in **zeus/modules/pom.xml** and **Dockerfile** should be made, e.g:
 
 **zeus/modules/pom.xml**
 ```xml
@@ -65,14 +79,6 @@ mvn clean install
 ```Docker
 COPY zeus/modules/{NEW-MODULE-NAME}/target/new-module-name-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib
 ```
-
-#### Docker Image
-```
-docker build -t zeus .
-docker tag zeus dirigiblelabs/zeus
-docker push dirigiblelabs/zeus
-```
-
 ## License
 
 This project is copyrighted by [SAP SE](http://www.sap.com/) and is available under the [Eclipse Public License v 1.0](https://www.eclipse.org/legal/epl-v10.html). See [LICENSE](LICENSE) and [NOTICE.txt](NOTICE.txt) for further details.
