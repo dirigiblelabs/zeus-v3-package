@@ -6,49 +6,24 @@
 
 ## Overview
 
-## Kubernetes
+## Build
 
-#### Minikube:
+#### Update Content
+```
+mvn clean install -P content
+mvn clean install
+```
 
-- Start: 
-  
-  `minikube start`
+> **NOTE:** If new module is being added, then a coresponding entry should be made in the Dockerfile, e.g:
 
-- Deploy:
+> ```COPY zeus/modules/applications-html5-process/target/zeus-applications-html5-process-0.0.1-SNAPSHOT.jar $CATALINA_HOME/webapps/ROOT/WEB-INF/lib```
 
-  `kubectl create -f https://raw.githubusercontent.com/promart-io/zeus-v3-package/master/zeus/zeus.yml`
-
-- Access:
-
-  - Get IP: 
-      
-    `minikube ip`
-
-  - Get port: 
-  
-    `kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'`
-
-  - Construct URL: {IP}:{Port}
-
-- Undeploy:
-
-  `kubectl delete -f https://raw.githubusercontent.com/promart-io/zeus-v3-package/master/zeus/zeus.yml`
-
-- Stop:
-
-  `minikube stop`
-
-## Docker
-Build an image without uploading it:
-
-1. Set the environment variables with eval: `eval $(minikube docker-env)`
-2. Build the image with the Docker daemon of Minukube: `docker build -t my-image`
-3. Set the image in the pod spec like the build tag: `my-image`
-4. Set the `imagePullPolicy` to `Never`, otherwise Kubernetes will try to download the image
-
-> Important note: You have to run eval $(minikube docker-env) on each terminal you want to use, since it only sets the environment variables for the current shell session.
-
-
+#### Docker Image
+```
+docker build -t zeus .
+docker tag zeus dirigiblelabs/zeus
+docker push dirigiblelabs/zeus
+```
 
 ## License
 
