@@ -1,4 +1,4 @@
-angular.module('page', ['ideUiCore', 'ngRsData', 'ui.bootstrap','angularFileUpload'])
+angular.module('page', ['ideUiCore', 'ngRsData', 'ui.bootstrap','ngCmis'])
 .config(["messageHubProvider", function(messageHubProvider) {
 	messageHubProvider.evtNamePrefix = 'zeus.Explore.Java';
 }])    
@@ -15,38 +15,18 @@ angular.module('page', ['ideUiCore', 'ngRsData', 'ui.bootstrap','angularFileUplo
 .config(["EntityProvider", function(entityProvider) {
   entityProvider.config.apiEndpoint = '../../../../../../../../services/v3/js/zeus-applications-java/api/applications.js';
 }])
-.service("WarFile", ['$http',function($http){
-	var baseurl = '../../../../../../../../services/v3/js/zeus-applications-java/api/wars.js';
-	return {
-		download: function(filepath){
-			return $http.get(baseurl + '/' + filepath, {
-				headers: {
-					"Accept": ["application/octet-stream"],
-				}
-			});
-		},
-		list: function(){
-			return $http.get(baseurl + '/', {
-				headers: {
-					"Accept": ["application/json"],
-				}
-			});
-		}
-	}
+.config(["CmisProvider", function(cmisProvider) {
+  cmisProvider.baseUrl = 'https://cmis.ingress.pro.promart.shoot.canary.k8s-hana.ondemand.com/services/v3/js/ide-documents/api';
 }])
-.controller('PageController', ['Entity', '$messageHub', 'FileUploader', 'WarFile', function (Entity, $messageHub, FileUploader, WarFile) {
+.controller('PageController', ['Entity', '$messageHub', 'Cmis', function (Entity, $messageHub, Cmis) {
 
     this.dataPage = 1;
     this.dataCount = 0;
     this.dataOffset = 0;
     this.dataLimit = 10;
-    this.WarFile = WarFile;
-	var uploader = this.uploader = new FileUploader({
-		url: '../../../../../../../../services/v3/js/zeus-applications-java/api/wars.js',
-		autoUpload: true
-	});
+    this.cmis = Cmis;
 
-    this.getPages = function () {
+	this.getPages = function () {
         return new Array(this.dataPages);
     };
 
@@ -64,162 +44,104 @@ angular.module('page', ['ideUiCore', 'ngRsData', 'ui.bootstrap','angularFileUplo
 
     this.loadPage = function () {
         return Entity.query({
-	            $limit: this.dataLimit,
-	            $offset: (this.dataPage - 1) * this.dataLimit
-	        }).$promise
-	        .then(function (data) {
-                this.dataCount = data.$count;
-                this.dataPages = Math.ceil(this.dataCount / this.dataLimit);
-                this.data = data;
-            }.bind(this))
-            .catch(function (err) {
-               if (err.data){
-	            	console.error(err.data)
-	            }
-	            console.error(err);
-            });
+		            $limit: this.dataLimit,
+		            $offset: (this.dataPage - 1) * this.dataLimit
+		        }).$promise
+		        .then(function (data) {
+	                this.dataCount = data.$count;
+	                this.dataPages = Math.ceil(this.dataCount / this.dataLimit);
+	                this.data = data;
+	            }.bind(this))
+	            .catch(function (err) {
+	               if (err.data){
+		            	console.error(err.data);
+		            }
+		            console.error(err);
+	            });
     };
 
-    this.openNewDialog = function () {
-        this.actionType = 'new';
-        this.entity = {};
+    this.openNewDialog = function (entity) {
+        this.actionType = entity?'update':'new';
+        this.entity = entity || {};
         toggleEntityModal();
     };
 
-    this.openEditDialog = function (entity) {
-        this.actionType = 'update';
-        this.entity = entity;
-        if(entity.warFilePath){
-        	this.entity.warFileName = WarFile.list(entity.warFilePath)
-							        	.then(function(response){
-							        		var list = response.data;
-							        		for (var i in list){
-							        			if (list[i].id === entity.warFilePath){
-							        				this.entity.warFileName = list[i].name;
-							        				return
-							        			}
-							        		}
-							        		return;
-							        	}.bind(this))
-							        	.catch(function(err){
-							        		if (err.data){
-								            	console.error(err.data.details);
-								            }
-								            console.error(err);
-								        });
-    	}
-        toggleEntityModal();
-    };
-
-    this.openDeleteDialog = function (entity) {
+    this.openDeleteDialog = function (entity) { 
         this.actionType = 'delete';
         this.entity = entity;
-        if(entity.warFilePath){
-        	this.entity.warFileName = WarFile.list(entity.warFilePath)
-							        	.then(function(response){
-							        		var list = response.data;
-							        		for (var i in list){
-							        			if (list[i].id === entity.warFilePath){
-							        				this.entity.warFileName = list[i].name;
-							        				return
-							        			}
-							        		}
-							        		return;
-							        	}.bind(this))
-							        	.catch(function(err){
-							        		if (err.data){
-								            	console.error(err.data.details);
-								            }
-								            console.error(err);
-								        });
-    	}
         toggleEntityModal();
     };
 
     this.close = function () {
-        this.loadPage(this.dataPage);
+//        this.loadPage(this.dataPage);
+		delete this.entity;
         toggleEntityModal();
     };
     
-    uploader.onSuccessItem = function(item, response, status, headers) {
-    	this.errors = "";
-    	this.entity.warFilePath = headers.location;
-    	this.entity.warFileName = item.file.name;
+    this.cmis.fileUpload.onSuccessItem = function(item, response, status, headers) {
+		console.debug(''+item.file.name+" upload successfull.");
+    	if(response.length>0){
+			this.entity.warFilePath = response[0].id;
+			this.entity.warFileName = response[0].name;
+    	}
     }.bind(this);
-
-	uploader.onErrorItem = function(item /*, response, status, headers*/){
-		this.errors = "Upload failed for " + item.file.name;
-		uploader.cancelAll();
+    
+	this.cmis.fileUpload.onErrorItem = function(item /*, response, status, headers*/){
+		console.error('upload of '+item.file.name+" failed.");
+		this.cmis.fileUpload.cancelAll(); //this.cancellAll
+	}.bind(this);    
+	
+	var entityAction = function(action){
+		return Entity[action]({id: this.entity.id}, this.entity).$promise
+			 	.then(function () {
+		            this.loadPage(this.dataPage);
+		            $messageHub.messageEntityModified();
+		            toggleEntityModal();
+		        }.bind(this))
+		        .catch(function (err) {
+		        	if (err.data && err.data.details){
+		            	console.error(err.data.details);
+		            }
+		            console.error(err);
+		        });
 	}.bind(this);
 
-
     this.create = function () {
-	  return Entity.save({id: this.entity.id}, this.entity).$promise
-	 	.then(function () {
-            this.loadPage(this.dataPage);
-            $messageHub.messageEntityModified();
-            toggleEntityModal();
-        }.bind(this))
-        .catch(function (err) {
-        	if (err.data){
-            	console.error(err.data.details);
-            }
-            console.error(err);
-        });
+		return entityAction('save');
     };
 
     this.update = function () {
-    	return Entity.update({id: this.entity.id}, this.entity).$promise
-    		.then(function(){
-	    		this.loadPage(this.dataPage);
-	            toggleEntityModal();
-	            $messageHub.messageEntityModified();
-	    	}.bind(this))
-	    	.catch(function(err) {
-	            if (err.data){
-	            	console.error(err.data.details);
-	            }
-	            console.error(err);
-	        });
+    	return entityAction('update');
     };
 
     this.delete = function () {
-		return Entity.remove({id: this.entity.id}).$promise
-    	.then(function(){
-				this.loadPage(this.dataPage);
-                toggleEntityModal();
-                $messageHub.messageEntityModified();
-			}.bind(this))
-		.catch(function(err){
-				if (err.data){
-	            	console.error(err.data.details);
-	            }
-	            console.error(err);
-			});
+    	return entityAction('delete')
+		    	.then(function(){
+		    		if(this.entity.warFilePath){
+		    		  return this.cmis.remove(this.entity.warFilePath);
+		    		}
+		    	}.bind(this));
+    };
+    
+    this.removeWar = function(){
+    	return this.cmis.remove(this.entity.warFilePath)
+		    	.then(function(){
+		    		delete this.entity.warFilePath;
+		    		delete this.entity.warFileName;
+		    	}.bind(this));
+    };
+    
+    this.parseDate = function(dateString){
+    	return Date.parse(dateString);
     };
     
     $messageHub.onEntityRefresh(this.loadPage);
 
-    function toggleEntityModal() {
-        $('#entityModal').modal('toggle');
+    var toggleEntityModal = function() {
+        $('#entityModal').modal('toggle');//FIXME: dom control from angular controller - not good. use directive or a module that does that.
         this.errors = '';
-    }
+        this.cmis.fileUpload.clearQueue();
+    }.bind(this);
     
-    this.loadPage(this.dataPage)
-}])
-.directive('fileReader', function($q) {
-    var slice = Array.prototype.slice;
-
-    return {
-        restrict: 'A',
-        require: '?ngModel',
-        link: function(scope, element, attrs, ngModel) {
-                if (!ngModel) return;
-                element.bind('change', function(e) {
-                    var element = e.target;
-					ngModel.$setViewValue(element.files);
-                }); //change
-
-            } //link
-    }; //return
-});;
+    this.loadPage(this.dataPage);
+}]);

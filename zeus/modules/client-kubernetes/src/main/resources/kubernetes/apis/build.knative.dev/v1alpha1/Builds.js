@@ -7,7 +7,7 @@ function Builds(server, token, namespace) {
     Api.constructor.apply(this, [{
 		apiVersion: "apis/build.knative.dev/v1alpha1",
 		kind: "builds",
-		entityBuilder: "kubernetes/builders/knative/v1alpha1/Build"
+		entityBuilder: "kubernetes/builders/apis/build.knative.dev/v1alpha1/Build"
 	}, server, token, namespace]);
 }
 
