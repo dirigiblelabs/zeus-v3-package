@@ -31,6 +31,16 @@
 		"type": "git",
 		"branch": "master"
 	}, {
+		"guid": "zeus-services",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-services.git",
+		"type": "git",
+		"branch": "master"
+	}, {
+		"guid": "zeus-bindings",
+		"url": "https://github.com/dirigiblelabs/zeus-v3-bindings.git",
+		"type": "git",
+		"branch": "master"
+	}, {
 		"guid": "zeus-v3-accounts",
 		"url": "https://github.com/dirigiblelabs/zeus-v3-accounts.git",
 		"type": "git",

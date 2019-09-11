@@ -24,7 +24,7 @@ exports.onMessage = function(message) {
 	// TODO To be triggered, after the Image is successfuly build -> BPM Process
 	var templateId = TemplatesDao.list().filter(e => e.Name === "HTML5")[0].Id;
 	var clusterId = Credentials.getDefaultCredentials().id;
-	Applications.create(templateId, clusterId, application.Name);
+	Applications.create(templateId, clusterId, application.Name, application);
 };
 
 exports.onError = function(error) {

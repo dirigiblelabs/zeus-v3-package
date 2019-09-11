@@ -1,0 +1,1 @@
+{"description":"Extension for the zeus deployer ConfigMap Resources","extensionPoint":"zeus-deployer-resources-ConfigMap","module":"zeus-applications-html5-process/extensions/ConfigMap/handler"}
