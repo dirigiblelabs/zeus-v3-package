@@ -28,12 +28,14 @@
       <module>applications-html5</module>
       <module>applications-html5-process</module>
       <module>applications-java</module>
+      <module>bindings</module>
       <module>build</module>
       <module>build-process</module>
       <module>templates</module>
       <module>accounts</module>
       <module>deployer</module>
       <module>client-kubernetes</module>
+      <module>services</module>
    </modules>
 
    <properties>
