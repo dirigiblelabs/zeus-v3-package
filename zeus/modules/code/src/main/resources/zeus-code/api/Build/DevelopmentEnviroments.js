@@ -19,11 +19,13 @@ rs.service()
 //			var statefulSet = getStatefulSet(name);
 			var service = getService(name);
 			var ingress = getIngress(credentials.ingress, name);
+			var virtualService = getVirtualService(credentials.ingress, name);
 
 			Manager.createDeployment(credentials, deployment);
 //			Manager.createStatefulSet(credentials, statefulSet);
 			Manager.createService(credentials, service);
 			Manager.createIngress(credentials, ingress);
+			Manager.createVirtualService(credentials, virtualService);
 
 			var entity = {};
 			entity.Id = dao.create({
@@ -42,6 +44,7 @@ rs.service()
 //				Manager.deleteStatefulSet(credentials, entity.Name);
 				Manager.deleteService(credentials, entity.Name + "-http");
 				Manager.deleteIngress(credentials, entity.Name);
+				Manager.deleteVirtualService(credentials, entity.Name);
 
 				dao.delete(id);
 				response.println("");
@@ -63,7 +66,7 @@ function getDeployment(name) {
         replicas: 1,
         containers: [{
             name: "dirigible",
-            image: "dirigiblelabs/dirigible-xsc:1.0",
+            image: "dirigiblelabs/dirigible-xsc:1.1",
             port: 8080,
         }],
 		env: [{
@@ -110,4 +113,15 @@ function getIngress(ingressHost, name) {
         serviceName: name + "-http",
         servicePort: 8080
     };
+}
+
+function getVirtualService(host, name) {
+	return {
+		name: name,
+        namespace: "zeus",
+        application: name,
+        host: host,
+        serviceName: name + "-http",
+        servicePort: 8080
+	};
 }
